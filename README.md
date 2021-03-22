@@ -54,7 +54,7 @@ The component takes five props:
 <div class="MyContent">
   <h1>Always show this</h1>
 
-  <slide-up-down :active="active" :duration="1000">
+  <slide-up-down v-model="active" :duration="1000">
     Only show this if "active” is true
   </slide-up-down>
 </div>
