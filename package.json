@@ -1,0 +1,40 @@
+{
+    "name": "vue3-slide-up-down",
+    "version": "1.0.0",
+    "description": "Vue 3 version of the vue-slide-up-down package",
+    "source": "src/vue3-slide-up-down.js",
+    "amdName": "Vue3SlideUpDown",
+    "main": "dist/vue3-slide-up-down.js",
+    "exports": "./dist/vue3-slide-up-down.modern.js",
+    "umd:main": "dist/vue3-slide-up-down.umd.js",
+    "module": "dist/vue3-slide-up-down.m.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "microbundle",
+        "dev": "microbundle --watch",
+        "prettier": "prettier --write src/* demo/*",
+        "prepublish": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/craigrileyuk/vue3-slide-up-down.git"
+    },
+    "keywords": [
+        "vue",
+        "vue3",
+        "slideup",
+        "slidedown",
+        "reflow"
+    ],
+    "author": "Craig Riley",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/craigrileyuk/vue3-slide-up-down/issues"
+    },
+    "homepage": "https://github.com/craigrileyuk/vue3-slide-up-down#readme",
+    "devDependencies": {
+        "microbundle": "^0.13.0"
+    }
+}
