@@ -168,7 +168,7 @@ export default {
 			h(
 				props.tag,
 				{
-					style: style.value,
+					style: { ...style.value, width: "100%" },
 					...componentAttributes.value,
 					...attrs,
 					ref: container,

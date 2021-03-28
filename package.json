@@ -14,8 +14,10 @@
     "scripts": {
         "build": "microbundle",
         "dev": "microbundle --watch",
-        "prettier": "prettier --write src/* demo/*",
-        "prepublish": "npm run build"
+        "prepublish": "npm run build",
+        "demo": "vite",
+        "demo:build": "vite build",
+        "demo:deploy": "gh-pages -d demo/dist"
     },
     "repository": {
         "type": "git",
@@ -35,6 +37,13 @@
     },
     "homepage": "https://github.com/craigrileyuk/vue3-slide-up-down#readme",
     "devDependencies": {
-        "microbundle": "^0.13.0"
+        "@vitejs/plugin-vue": "^1.2.0",
+        "@vue/compiler-sfc": "^3.0.4",
+        "gh-pages": "^3.1.0",
+        "microbundle": "^0.13.0",
+        "prismjs": "^1.23.0",
+        "sass": "^1.30.0",
+        "vite": "^2.1.3",
+        "vue": "^3.0.9"
     }
 }
