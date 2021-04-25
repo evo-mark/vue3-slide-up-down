@@ -172,7 +172,7 @@ export default {
 					...componentAttributes.value,
 					...attrs,
 					ref: container,
-					onTransitionEnd: onTransitionEnd,
+					ontransitionend: onTransitionEnd,
 				},
 				slots.default()
 			);
