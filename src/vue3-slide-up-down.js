@@ -2,6 +2,7 @@ import { h, ref, computed, watch, onMounted, nextTick } from "vue";
 
 export default {
 	name: "SlideUpDown",
+	emits: ["open-start", "close-start", "open-end", "close-end", "layout-shift"],
 	props: {
 		/**
 		 * v-model value, is the component expanded or not
@@ -103,7 +104,7 @@ export default {
 		watch(() => props.modelValue, layout);
 
 		onMounted(() => {
-			layout();
+			layoutShift();
 			isInitialised.value = true;
 			if (props.responsive) setResizeListener();
 		});
@@ -112,7 +113,8 @@ export default {
 			if (ev.target !== container.value) return;
 
 			if (props.modelValue) {
-				style.value = {};
+				// style.value.height = null;
+				style.value.overflow = null;
 				emit("open-end");
 			} else {
 				style.value = {
@@ -129,6 +131,12 @@ export default {
 			else nextTick(callback);
 		};
 
+		/**
+		 * setHeight - Adds the before/after styling to the container
+		 * @param { string } temp - The CSS height value for the start of the transition
+		 * @param { function } afterRelayout - A function to retrieve the CSS height value for the end of the transition
+		 * @returns void
+		 */
 		const setHeight = (temp, afterRelayout) => {
 			style.value = { height: temp };
 
