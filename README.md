@@ -18,10 +18,8 @@ Usage with Webpack or other module bundlers:
 
 ```js
 import SlideUpDown from 'vue3-slide-up-down'
-// or
-const SlideUpDown = require('vue3-slide-up-down')
 
-Vue.component('slide-up-down', SlideUpDown)
+app.component('slide-up-down', SlideUpDown)
 ```
 
 Or use the UMD build directly in your browser (the component is provided as `window.Vue3SlideUpDown`).
@@ -69,7 +67,7 @@ The component emits five Vue events:
 - `layout-shift`
 
 ```html
-<slide-up-down @close-end="console.log('done closing!')" />
+<slide-up-down @close-end="() => console.log('done closing!')" />
 ```
 
 ### Custom `transition-timing-function`
