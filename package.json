@@ -1,6 +1,6 @@
 {
     "name": "vue3-slide-up-down",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Vue 3 version of the vue-slide-up-down package",
     "source": "src/vue3-slide-up-down.js",
     "amdName": "Vue3SlideUpDown",
