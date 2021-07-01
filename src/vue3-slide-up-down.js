@@ -83,7 +83,10 @@ export default {
 		const layoutShift = () => {
 			if (props.modelValue) {
 				emit("layout-shift");
-				setHeight(currentHeight.value, () => container.value.scrollHeight + "px");
+				setHeight(
+					currentHeight.value,
+					() => Array.from(container.value.children).reduce((acc, curr) => acc + curr.scrollHeight, 0) + "px"
+				);
 			}
 		};
 
@@ -113,7 +116,6 @@ export default {
 			if (ev.target !== container.value) return;
 
 			if (props.modelValue) {
-				// style.value.height = null;
 				style.value.overflow = null;
 				emit("open-end");
 			} else {
@@ -154,17 +156,18 @@ export default {
 		/**
 		 * Called by onMounted if props.responsive is set to true. Attaches a mutation observer to the container and responds to content changes
 		 */
-		const setResizeListener = () => {
-			const observer = new MutationObserver((mutations) => {
-				mutations.forEach((mutation) => {
-					layoutShift();
-				});
+		const resizeCallback = (mutations) => {
+			mutations.forEach((mutation) => {
+				layoutShift();
 			});
+		};
+		const setResizeListener = () => {
+			const observer = new MutationObserver(resizeCallback);
 			const config = {
-				subtree: true,
+				subtree: false,
 				attributes: false,
 				childList: true,
-				characterData: true,
+				characterData: false,
 			};
 			observer.observe(container.value, config);
 		};
