@@ -117,6 +117,7 @@ export default {
 
 			if (props.modelValue) {
 				style.value.overflow = null;
+				style.value.height = "auto";
 				emit("open-end");
 			} else {
 				style.value = {
