@@ -1,0 +1,6 @@
+{
+    "plugins": [
+        "jsdoc"
+    ],
+    "extends": ["plugin:vue/vue3-recommended","plugin:jsdoc/recommended"]
+}

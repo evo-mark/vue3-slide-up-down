@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}
+
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-white;
+}
+.btn-secondary:hover {
+  @apply bg-blue-800;
+}
+
+.filter-vue-green:hover {
+    filter: invert(59%) sepia(49%) saturate(470%) hue-rotate(101deg) brightness(114%) contrast(91%);
+}

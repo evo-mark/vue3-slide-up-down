@@ -5,9 +5,9 @@ export default {
 	plugins: [vue()],
 	build: {
 		lib: {
-			entry: path.resolve(__dirname, "src/vue3-slide-up-down.js"),
+			entry: path.resolve(__dirname, "src/index.js"),
 			name: "Vue3SlideUpDown",
-			formats: ["es", "umd", "cjs"],
+			formats: ["es", "umd", "cjs", "iife"],
 		},
 		rollupOptions: {
 			external: ["vue"],
@@ -17,6 +17,5 @@ export default {
 				},
 			},
 		},
-		sourcemap: true,
 	},
 };

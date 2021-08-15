@@ -42,11 +42,13 @@ Or use the UMD build directly in your browser (the component is provided as `win
 
 The component takes five props:
 
-- `v-model` (Boolean, required): Whether to show the component (`true`) or not (`false`)
-- `duration` (Number, optional): How long the animation is supposed to be, in milliseconds. Defaults to `500`.
-- `tag` (String, optional): Which HTML tag to use for the wrapper element. Defaults to `div`.
-- `use-hidden` (Boolean, optional): Whether to apply the "hidden" attribute to the element when closed. Defaults to `true`. This hides the component from the screen and from assistive devices. The internal elements of the component are completely invisible, and cannot be focused on (by a keyboard or assistive device). (This is probably what you want!) If you need, set this property to `false` to not use the `hidden` attribute. This could be used if you wanted to have a min-height requirement on your component. **⚠️ Note that this can create accessibility issues**, specifically for users with a keyboard or screen reader. Even though the component may _appear_ hidden, focusable elements within the component are still able to be accessed through keyboard navigation.
-- `responsive` (Boolean) If true, the container will animate changes in height should the content of the container change (e.g. DOM nodes are added/removed, text content changes ). This will not affect the container if it is closed.
+| name           | type    | required | description                                 | default       |
+| -------------- | ------- | -------- | ------------------------------------------- | ------------- |
+| v-model        | boolean | yes      | Whether to show the component or not        | N/A           |
+| duration       | number  | no       | How long the animation will be in ms        | 500           |
+| timingFunction | string  | no       | The CSS transition-timing-function property | "ease-in-out" |
+| tag            | string  | no       | The HTML tag to use for the wrapper element | "div"         |
+| responsive     | boolean | no       | Animate height when contents are changed    | false         |
 
 ```html
 <div class="MyContent">
@@ -68,20 +70,4 @@ The component emits five Vue events:
 
 ```html
 <slide-up-down @close-end="() => console.log('done closing!')" />
-```
-
-### Custom `transition-timing-function`
-
-If you want to use a different timing function, add some CSS for your `<slide-up-down>` element.
-
-```html
-<style>
-  .wobbly-accordion {
-    transition-timing-function: cubic-bezier(0.195, 1.65, 0.435, -0.6);
-</svtyle>
-
-<slide-up-down class="wobbly-accordion">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta omnis velit
-  ab culpa, officia, unde nesciunt temporibus cum reiciendis distinctio.
-</slide-up-down>
 ```
