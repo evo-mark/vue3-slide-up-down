@@ -136,16 +136,14 @@ export default {
 			observer.observe(containerRef.value, config);
 		};
 
+		console.log(attrs);
 		return () =>
 			h(
 				props.tag,
 				{
-					style: {
-						...generatedBaseStyles.value,
-					},
+					...Object.assign({}, attrs, { style: generatedBaseStyles.value }),
 					class: "slide-up-down__container",
 					onTransitionend: transitionEnd,
-					...attrs,
 					...generatedBaseAttributes.value,
 					ref: containerRef,
 				},

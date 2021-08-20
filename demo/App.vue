@@ -5,6 +5,7 @@
 		<div class="container">
 			<slide-up-down
 				v-model="show"
+				style="color: red"
 				data-id="1"
 				responsive
 				@open-start="openStart"
