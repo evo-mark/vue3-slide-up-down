@@ -84,7 +84,8 @@ export default {
 		/**
 		 * Called when the CSS transition animation is complete.
 		 */
-		const transitionEnd = () => {
+		const transitionEnd = event => {
+			if (event.target !== containerRef.value) return
 			if (props.modelValue === true) {
 				currentHeight.value = null;
 				shouldHideOverflow.value = false;
