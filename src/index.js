@@ -83,9 +83,11 @@ export default {
 
 		/**
 		 * Called when the CSS transition animation is complete.
+		 *
+		 * @param {Event} event - ontransitionend JS event.
 		 */
-		const transitionEnd = event => {
-			if (event.target !== containerRef.value) return
+		const transitionEnd = (event) => {
+			if (event.target !== containerRef.value) return;
 			if (props.modelValue === true) {
 				currentHeight.value = null;
 				shouldHideOverflow.value = false;
@@ -117,6 +119,7 @@ export default {
 		 * Called by onMounted if props.responsive is set to true. Attaches a mutation observer to the container and responds to content changes.
 		 */
 		const resizeCallback = () => {
+			if (props.modelValue === false) return;
 			emit("layout-shift");
 			currentHeight.value = contentHeight.value + "px";
 			shouldHideOverflow.value = true;
