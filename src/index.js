@@ -136,7 +136,6 @@ export default {
 			observer.observe(containerRef.value, config);
 		};
 
-		console.log(attrs);
 		return () =>
 			h(
 				props.tag,
