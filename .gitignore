@@ -5,3 +5,4 @@ dist-ssr
 *.local
 *.tgz
 *.backup
+.idea/
