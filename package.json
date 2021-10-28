@@ -1,6 +1,6 @@
 {
 	"name": "vue3-slide-up-down",
-	"version": "1.2.3",
+	"version": "1.2.4",
 	"description": "Vue 3 version of the vue-slide-up-down package",
 	"source": "src/index.js",
 	"amdName": "Vue3SlideUpDown",
@@ -50,5 +50,6 @@
 	},
 	"peerDependencies": {
 		"vue": "^3.0.0"
-	}
+	},
+	"typings": "./index.d.ts"
 }
