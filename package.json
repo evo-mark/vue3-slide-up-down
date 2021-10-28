@@ -8,7 +8,8 @@
 	"umd:main": "dist/vue3-slide-up-down.umd.js",
 	"module": "dist/vue3-slide-up-down.es.js",
 	"files": [
-		"dist"
+		"dist",
+		"*.ts"
 	],
 	"scripts": {
 		"build": "vite build -c vite-build.config.js",
