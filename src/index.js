@@ -47,7 +47,7 @@ export default {
 		 * Update the contentHeight value to the current height of the contents inside the container
 		 */
 		const updateContainerHeight = () => {
-			contentHeight.value = containerRef.value.scrollHeight;
+			containerRef.value ? contentHeight.value = containerRef.value.scrollHeight : '';
 		};
 		/**
 		 * Perform the animations between open, close and shift states
@@ -121,6 +121,9 @@ export default {
 		const resizeCallback = () => {
 			if (props.modelValue === false) return;
 			emit("layout-shift");
+			if (containerRef.value && containerRef.value.children && containerRef.value.children[0] && contentHeight.value > containerRef.value.children[0].scrollHeight) {
+				contentHeight.value = containerRef.value.children[0].scrollHeight;
+			}
 			currentHeight.value = contentHeight.value + "px";
 			shouldHideOverflow.value = true;
 			updateContainerHeight();
