@@ -79,6 +79,7 @@ export default {
 		 */
 		const generatedBaseAttributes = computed(() => ({
 			"aria-hidden": shouldHideOverflow.value ? true : false,
+			tabindex: shouldHideOverflow.value ? "-1" : null,
 		}));
 
 		/**
