@@ -9,14 +9,16 @@
 				style="color: red"
 				data-id="1"
 				responsive
+			>
+			<!-- 				
 				@open-start="openStart"
 				@open-end="openEnd"
 				@close-start="closeStart"
 				@close-end="closeEnd"
 				@layout-shift="layoutShift"
-			>
+			-->
 				<div style="background-color: steelblue; color: white" class="p-4">
-					{{ content }} <input type="text" name="two" style="background: #efefef" />
+					{{ content }}
 				</div>
 			</slide-up-down>
 		</div>
@@ -27,12 +29,12 @@
 
 <script setup>
 import "./index.css";
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
 import Header from "./partials/Header.vue";
 import Footer from "./partials/Footer.vue";
 
-const show = ref(false);
-const content = ref("");
+let show = $ref(false);
+let content = $ref("");
 
 const openStart = () => console.log("open start");
 const openEnd = () => console.log("open end");
@@ -47,9 +49,9 @@ const shortContent = "The Content";
 
 onMounted(() => {
 	setInterval(() => {
-		if (content.value === shortContent) content.value = longContent;
-		else content.value = shortContent;
-	}, 3000);
+		if (content === shortContent) content = longContent;
+		else content = shortContent;
+	}, 1000);
 });
 </script>
 

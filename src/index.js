@@ -28,6 +28,10 @@ export default {
 		 */
 		const currentHeight = ref(0);
 		/**
+		 * @constant { ref<boolean> } isTransitioning  - Is the slide animation currently playing
+		 */
+		const isTransitioning = ref(false);
+		/**
 		 * @constant { computed<string> } transitionDuration  - The value of the CSS transition-duration property.
 		 */
 		const transitionDuration = computed(() => {
@@ -47,12 +51,17 @@ export default {
 		 * Update the contentHeight value to the current height of the contents inside the container
 		 */
 		const updateContainerHeight = () => {
-			contentHeight.value = containerRef.value.scrollHeight;
+			containerRef.value ? (contentHeight.value = containerRef.value.scrollHeight) : "";
 		};
 		/**
 		 * Perform the animations between open, close and shift states
 		 */
 		const updateDisplay = () => {
+			if (isTransitioning.value === true) {
+				if (props.modelValue === false) currentHeight.value = 0;
+				updateContainerHeight();
+				return transitionEnd({ target: containerRef.value });
+			}
 			currentHeight.value = contentHeight.value + "px";
 
 			if (props.modelValue === false) {
@@ -62,6 +71,7 @@ export default {
 					currentHeight.value = 0;
 				});
 			} else emit("open-start");
+			isTransitioning.value = true;
 		};
 
 		/**
@@ -78,8 +88,8 @@ export default {
 		 * @constant { computed<object> } generatedBaseAttributes  - Computed attributes object for the container
 		 */
 		const generatedBaseAttributes = computed(() => ({
-			"aria-hidden": shouldHideOverflow.value ? true : false,
-			tabindex: shouldHideOverflow.value ? "-1" : null,
+			"aria-hidden": props.modelValue === false ? true : false,
+			tabindex: props.modelValue === false ? "-1" : null,
 		}));
 
 		/**
@@ -94,6 +104,7 @@ export default {
 				shouldHideOverflow.value = false;
 				emit("open-end");
 			} else emit("close-end");
+			isTransitioning.value = false;
 		};
 
 		onMounted(() => {
