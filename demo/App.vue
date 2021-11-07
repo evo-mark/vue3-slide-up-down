@@ -2,6 +2,7 @@
 	<Header />
 	<main>
 		<button class="btn btn-secondary my-4 mx-6" @click="show = !show">Toggle Slide</button>
+		<input type="text" name="one" style="background: #efefef" />
 		<div class="container">
 			<slide-up-down
 				v-model="show"
@@ -14,9 +15,12 @@
 				@close-end="closeEnd"
 				@layout-shift="layoutShift"
 			>
-				<div style="background-color: steelblue; color: white" class="p-4">{{ content }}</div>
+				<div style="background-color: steelblue; color: white" class="p-4">
+					{{ content }} <input type="text" name="two" style="background: #efefef" />
+				</div>
 			</slide-up-down>
 		</div>
+		<input class="mt-10" type="text" name="three" style="background: #efefef" />
 	</main>
 	<Footer />
 </template>
