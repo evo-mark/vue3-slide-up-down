@@ -74,6 +74,23 @@ export default {
 			isTransitioning.value = true;
 		};
 
+    /**
+     * Checks whether the scrollHeight is not 0 because sometimes initialization can happen in (x) ms and the data will not be displayed
+     */
+    const checkScrollHeight = () => {
+      const idInterval = setInterval(() => {
+        if (containerRef.value && containerRef.value.scrollHeight !== 0 && contentHeight.value === 0) {
+          clearInterval(idInterval);
+          contentHeight.value = containerRef.value.scrollHeight;
+          updateDisplay();
+        }
+      }, 5);
+
+      setTimeout(() => {
+        clearInterval(idInterval);
+      }, 5 * 1000);
+    };
+
 		/**
 		 * @constant { computed<object> } generatedBaseStyles  - Computed style object for the container
 		 */
@@ -117,6 +134,7 @@ export default {
 			}
 			if (props.responsive) setResizeListener();
 			isInit.value = true;
+			checkScrollHeight();
 		});
 
 		watch(
