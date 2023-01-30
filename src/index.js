@@ -106,15 +106,16 @@ export default {
 			} else emit("close-end");
 			isTransitioning.value = false;
 		};
-
+		
+		if (!props.modelValue) {
+			currentHeight.value = 0;
+			shouldHideOverflow.value = true;
+		} else {
+			currentHeight.value = contentHeight.value + "px";
+		}
+		
 		onMounted(() => {
 			updateContainerHeight();
-			if (!props.modelValue) {
-				currentHeight.value = 0;
-				shouldHideOverflow.value = true;
-			} else {
-				currentHeight.value = contentHeight.value + "px";
-			}
 			if (props.responsive) setResizeListener();
 			isInit.value = true;
 		});
