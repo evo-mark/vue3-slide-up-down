@@ -1,28 +1,8 @@
-const colours = require("tailwindcss/colors");
-
-module.exports = {
-	mode: "jit",
-	purge: ["./demo/**/*.{js,vue}"],
-	darkMode: false, // or 'media' or 'class'
+/** @type {import('tailwindcss').Config} */
+export default {
+	content: ['./index.html', './demo/**/*.{js,ts,vue}'],
 	theme: {
-		extend: {
-			saturate: {
-				500: "5",
-			},
-		},
-		colors: {
-			blue: colours.blue,
-			primary: "#41b883",
-			secondary: "#34495e",
-			white: "#fff",
-			current: "currentColor",
-		},
+		extend: {}
 	},
-	variants: {
-		extend: {
-			saturate: ["hover", "focus"],
-			sepia: ["hover", "focus"],
-		},
-	},
-	plugins: [],
+	plugins: []
 };

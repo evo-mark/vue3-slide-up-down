@@ -1,8 +1,5 @@
-import { createApp } from "vue";
-import SlideUpDown from "./package";
-import App from "./App.vue";
+import { createApp } from 'vue';
+import App from './App.vue';
+import { Vue3SlideUpDown } from '../src';
 
-const app = createApp(App);
-
-app.component("slide-up-down", SlideUpDown);
-app.mount("#app");
+createApp(App).component('Vue3SlideUpDown', Vue3SlideUpDown).mount('#app');

@@ -1,73 +1,19 @@
-# vue3-slide-up-down
+<a href="https://southcoastweb.co.uk" target="_blank" alt="Link to southcoastweb's website">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://southcoastweb.co.uk/app/logo-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://southcoastweb.co.uk/app/logo.svg">
+      <img alt="southcoastweb company logo" src="https://southcoastweb.co.uk/app/logo.svg">
+    </picture>
+</a>
 
-Like jQuery's [`slideUp`](http://api.jquery.com/slideup/) / [`slideDown`](http://api.jquery.com/slidedown/), but for [Vue 3](vuejs.org)!
+<p align="center">
+  <img src="https://img.shields.io/npm/dm/vue3-slide-up-down.svg" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/vue3-slide-up-down"><img src="https://img.shields.io/npm/v/vue3-slide-up-down.svg" alt="Version"></a>
+  <a href="https://github.com/craigrileyuk/vue3-slide-up-down/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/vue3-slide-up-down.svg" alt="License"></a>
+</p>
 
-Forked from Daniel Diekmeier's [`vue-slide-up-down`](https://github.com/danieldiekmeier/vue-slide-up-down) project.
+# Vue3 Slide Up Down
 
-## Demo
+Animate showing and hiding content easily with a v-model based wrapper.
 
-Coming soon
-
-## Installation
-
-```sh
-npm i vue3-slide-up-down
-```
-
-Usage with Webpack or other module bundlers:
-
-```js
-import SlideUpDown from 'vue3-slide-up-down'
-
-app.component('slide-up-down', SlideUpDown)
-```
-
-Or use the UMD build directly in your browser (the component is provided as `window.Vue3SlideUpDown`).
-
-```html
-<script
-  type="text/javascript"
-  src="node_modules/vuejs/dist/vue.min.js"
-></script>
-<script
-  type="text/javascript"
-  src="node_modules/vue3-slide-up-down/dist/vue3-slide-up-down.umd.js"
-></script>
-<script type="text/javascript">
-  Vue.component('slide-up-down', Vue3SlideUpDown)
-</script>
-```
-
-## Usage
-
-The component takes five props:
-
-| name           | type    | required | description                                 | default       |
-| -------------- | ------- | -------- | ------------------------------------------- | ------------- |
-| v-model        | boolean | yes      | Whether to show the component or not        | N/A           |
-| duration       | number  | no       | How long the animation will be in ms        | 500           |
-| timingFunction | string  | no       | The CSS transition-timing-function property | "ease-in-out" |
-| tag            | string  | no       | The HTML tag to use for the wrapper element | "div"         |
-| responsive     | boolean | no       | Animate height when contents are changed    | false         |
-
-```html
-<div class="MyContent">
-  <h1>Always show this</h1>
-
-  <slide-up-down v-model="active" :duration="1000">
-    Only show this if "active” is true
-  </slide-up-down>
-</div>
-```
-
-The component emits five Vue events:
-
-- `open-start`
-- `open-end`
-- `close-start`
-- `close-end`
-- `layout-shift`
-
-```html
-<slide-up-down @close-end="() => console.log('done closing!')" />
-```
+Full installation instructions and documentation available at [southcoastweb](https://southcoastweb.co.uk/open-source-software/vue-3-slide-up-down/).

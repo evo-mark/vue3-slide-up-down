@@ -1,9 +1,0 @@
-demo
-node_modules
-src
-test
-.editorconfig
-.github
-.gitignore
-*.config.js
-*.tgz

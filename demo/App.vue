@@ -1,66 +1,57 @@
 <template>
-	<Header />
-	<main>
-		<button class="btn btn-secondary my-4 mx-6" @click="show = !show">Toggle Slide</button>
-		<input type="text" name="one" style="background: #efefef" />
-		<div class="container">
-			<slide-up-down
-				v-model="show"
-				style="color: red"
-				data-id="1"
-				responsive
-			>
-			<!-- 				
-				@open-start="openStart"
-				@open-end="openEnd"
-				@close-start="closeStart"
-				@close-end="closeEnd"
-				@layout-shift="layoutShift"
-			-->
-				<div style="background-color: steelblue; color: white" class="p-4">
-					{{ content }}
-				</div>
-			</slide-up-down>
-		</div>
-		<input class="mt-10" type="text" name="three" style="background: #efefef" />
-	</main>
-	<Footer />
+    <div class="app-wrapper">
+        <Vue3SlideUpDown v-model="show" :duration="3000" @open-start="onOpenStart">
+            <div class="p-4">
+                <p class="mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Vel fringilla est ullamcorper eget nulla facilisi. Viverra tellus in hac habitasse
+                    platea. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Adipiscing elit
+                    ut
+                    aliquam purus. Vulputate sapien nec sagittis aliquam malesuada. Augue interdum velit euismod in
+                    pellentesque
+                    massa placerat duis ultricies. Lectus urna duis convallis convallis. Lacus vestibulum sed arcu non odio
+                    euismod. At erat pellentesque adipiscing commodo elit at imperdiet. Vivamus at augue eget arcu. Ultrices
+                    neque ornare aenean euismod elementum nisi quis eleifend quam.
+                </p>
+                <p class="mb-4">
+                    Habitant morbi tristique senectus et. In aliquam sem fringilla ut morbi. Orci dapibus ultrices in
+                    iaculis.
+                    Malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Rutrum quisque non tellus orci
+                    ac.
+                    Urna et pharetra pharetra massa. Phasellus egestas tellus rutrum tellus. Quisque id diam vel quam
+                    elementum
+                    pulvinar etiam. Leo vel orci porta non. Lectus quam id leo in vitae. Pellentesque adipiscing commodo
+                    elit
+                    at. Est ultricies integer quis auctor elit sed vulputate mi sit. Eu nisl nunc mi ipsum faucibus vitae
+                    aliquet nec. Eu facilisis sed odio morbi. Nam libero justo laoreet sit amet cursus. Id aliquet lectus
+                    proin
+                    nibh nisl. Turpis tincidunt id aliquet risus feugiat in ante metus. In egestas erat imperdiet sed
+                    euismod
+                    nisi porta lorem. Ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae.
+                </p>
+            </div>
+
+        </Vue3SlideUpDown>
+        <div class="bg-blue-500 h-60"></div>
+    </div>
 </template>
 
 <script setup>
-import "./index.css";
-import { onMounted } from "vue";
-import Header from "./partials/Header.vue";
-import Footer from "./partials/Footer.vue";
+import { ref } from "vue";
 
-let show = $ref(false);
-let content = $ref("");
+const show = ref(true);
 
-const openStart = () => console.log("open start");
-const openEnd = () => console.log("open end");
-const closeStart = () => console.log("close start");
-const closeEnd = () => console.log("close end");
-const layoutShift = () => console.log("layout shift");
+const onOpenStart = () => {
+    console.log("Open Start");
+}
 
-const longContent = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a sapien a purus consectetur feugiat non eget nisl. Praesent eu turpis volutpat, posuere sapien ut, interdum erat. Integer est diam, interdum nec mauris nec, porta commodo est. Vivamus nec neque diam. Ut urna augue, cursus laoreet magna at, mattis convallis lectus. In aliquet orci leo, nec accumsan velit rhoncus eu. Phasellus pulvinar dictum feugiat. Nullam diam nunc, porta placerat elit vel, fringilla pretium risus.
-
-Aenean blandit augue eget ante maximus sollicitudin.Sed a purus elit.Morbi elementum venenatis libero, eget malesuada purus sagittis vitae.Vivamus tempor lacinia sapien, eget faucibus odio posuere eu.In ornare nisl ipsum, at ultrices purus rhoncus in.Nulla quis quam libero.Etiam eleifend id dolor ut faucibus.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc placerat urna sollicitudin porttitor auctor.Suspendisse egestas id justo vel pharetra.Aenean convallis ex at tellus volutpat consequat.Phasellus volutpat dolor urna, at elementum tortor tristique eget.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.`;
-const shortContent = "The Content";
-
-onMounted(() => {
-	setInterval(() => {
-		if (content === shortContent) content = longContent;
-		else content = shortContent;
-	}, 1000);
-});
+setInterval(() => {
+    show.value = !show.value;
+}, 5_000)
 </script>
 
-<style lang="scss">
-@import "prismjs/themes/prism-okaidia.css";
-
-.container {
-	background-color: #242424;
-	padding: 1rem;
-	border-radius: 4px;
-}
+<style lang="postcss">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 </style>

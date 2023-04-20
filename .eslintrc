@@ -1,7 +1,0 @@
-{
-    "plugins": [
-        "jsdoc",
-        "prettier"
-    ],
-    "extends": ["plugin:vue/vue3-recommended","plugin:jsdoc/recommended", "prettier"]
-}
