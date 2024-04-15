@@ -18,4 +18,4 @@
 
 Animate showing and hiding content easily with a v-model based wrapper.
 
-Full installation instructions and documentation available at [southcoastweb](https://southcoastweb.co.uk/open-source-software/vue-3-slide-up-down/).
+Full installation instructions and documentation available at [evoMark](https://evomark.co.uk/open-source-software/vue3-slide-up-down/).
