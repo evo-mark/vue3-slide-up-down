@@ -1,4 +1,4 @@
-import { defineComponent, h, Transition, ref, computed, unref, mergeProps } from 'vue';
+import { defineComponent, h, Transition, ref, computed, unref, mergeProps, withDirectives, vShow } from 'vue';
 import type { Ref } from 'vue';
 
 interface initialStyle {
@@ -143,6 +143,13 @@ export const Vue3SlideUpDown = defineComponent({
 		tag: {
 			type: String,
 			default: 'div'
+		},
+		/**
+		 * Always render the element inside the slide container
+		 */
+		eager: {
+			type: Boolean,
+			default: false
 		}
 	},
 	emits: ['update:modelValue', 'open-start', 'open-end', 'close-start', 'close-end'],
@@ -184,6 +191,7 @@ export const Vue3SlideUpDown = defineComponent({
 				Transition,
 				{
 					css: false,
+					persisted: props.eager,
 					onBeforeEnter: () => emit('open-start'),
 					onEnter: enterTransition,
 					onBeforeLeave: () => emit('close-start'),
@@ -191,14 +199,17 @@ export const Vue3SlideUpDown = defineComponent({
 				},
 				{
 					default: () =>
-						props.modelValue
-							? h(
-									props.tag,
-									mergeProps(attrs, {
-										class: 'slide-up-down__container'
-									}),
-									slots
-							  )
+						props.modelValue || props.eager
+							? withDirectives(
+									h(
+										props.tag,
+										mergeProps(attrs, {
+											class: 'slide-up-down__container'
+										}),
+										slots
+									),
+									[props.eager ? [vShow, props.modelValue === true] : [null]]
+								)
 							: null
 				}
 			);

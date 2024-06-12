@@ -1,83 +1,84 @@
 {
-	"name": "vue3-slide-up-down",
-	"version": "2.0.1",
-	"author": "southcoastweb",
-	"homepage": "https://southcoastweb.co.uk",
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build && tsc --emitDeclarationOnly",
-		"test:unit": "vitest --dom",
-		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-		"format": "prettier --write src/",
-		"prepublishOnly": "npm run lint && npm run format && npm run build"
-	},
-	"type": "module",
-	"main": "./dist/vue3-slide-up-down.cjs",
-	"module": "./dist/vue3-slide-up-down.js",
-	"types": "./dist/types/index.d.ts",
-	"exports": {
-		".": {
-			"require": "./dist/vue3-slide-up-down.cjs",
-			"import": "./dist/vue3-slide-up-down.js",
-			"browser": "./dist/vue3-slide-up-down.umd.cjs",
-			"types": "./dist/types/index.d.ts"
-		}
-	},
-	"files": [
-		"dist"
-	],
-	"peerDependencies": {
-		"vue": "^3.0.0"
-	},
-	"devDependencies": {
-		"@rushstack/eslint-patch": "^1.2.0",
-		"@testing-library/vue": "^7.0.0",
-		"@types/jsdom": "^21.1.0",
-		"@types/node": "^18.14.0",
-		"@vitejs/plugin-vue": "^4.0.0",
-		"@vue/eslint-config-prettier": "^7.1.0",
-		"@vue/eslint-config-typescript": "^11.0.2",
-		"@vue/test-utils": "^2.3.0",
-		"@vue/tsconfig": "^0.1.3",
-		"autoprefixer": "^10.4.14",
-		"eslint": "^8.34.0",
-		"eslint-plugin-vue": "^9.9.0",
-		"happy-dom": "^9.8.4",
-		"jsdom": "^21.1.0",
-		"npm-run-all": "^4.1.5",
-		"postcss": "^8.4.22",
-		"prettier": "^2.8.4",
-		"tailwindcss": "^3.3.1",
-		"typescript": "^5.0.2",
-		"vite": "^4.1.3",
-		"vite-plugin-dts": "^2.0.2",
-		"vitest": "^0.30.1",
-		"vue-tsc": "^1.1.5"
-	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"not dead"
-	],
-	"bugs": {
-		"url": "https://github.com/southcoastweb/vue3-slide-up-down/issues"
-	},
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/southcoastweb/vue3-slide-up-down.git"
-	},
-	"keywords": [
-		"Vue",
-		"Vue3",
-		"show",
-		"hide",
-		"slide",
-		"collapse",
-		"transition",
-		"slideup",
-		"slidedown",
-		"up",
-		"down"
-	]
+    "name": "vue3-slide-up-down",
+    "version": "2.1.0",
+    "author": "evoMark",
+    "homepage": "https://evomark.co.uk",
+    "scripts": {
+        "dev": "vite -c vite-demo.config.js",
+        "build": "vite build && tsc --emitDeclarationOnly",
+        "test:unit": "vitest --dom",
+        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+        "format": "prettier --write src/",
+        "prepublishOnly": "npm run lint && npm run format && npm run build"
+    },
+    "type": "module",
+    "main": "./dist/vue3-slide-up-down.cjs",
+    "module": "./dist/vue3-slide-up-down.js",
+    "types": "./dist/types/index.d.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/vue3-slide-up-down.cjs",
+            "import": "./dist/vue3-slide-up-down.js",
+            "browser": "./dist/vue3-slide-up-down.umd.cjs",
+            "types": "./dist/types/index.d.ts"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "peerDependencies": {
+        "vue": "^3.0.0"
+    },
+    "devDependencies": {
+        "@rushstack/eslint-patch": "^1.10.3",
+        "@testing-library/vue": "^8.1.0",
+        "@types/jsdom": "^21.1.7",
+        "@types/node": "^20.14.2",
+        "@vitejs/plugin-vue": "^5.0.5",
+        "@vue/eslint-config-prettier": "^9.0.0",
+        "@vue/eslint-config-typescript": "^13.0.0",
+        "@vue/test-utils": "^2.4.6",
+        "@vue/tsconfig": "^0.5.1",
+        "autoprefixer": "^10.4.19",
+        "eslint": "^8.57.0",
+        "eslint-plugin-vue": "^9.26.0",
+        "happy-dom": "^9.20.3",
+        "jsdom": "^24.1.0",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^8.4.38",
+        "prettier": "^3.3.2",
+        "tailwindcss": "^3.4.4",
+        "typescript": "^5.4.5",
+        "vite": "^5.2.13",
+        "vite-plugin-dts": "^3.9.1",
+        "vitest": "^1.6.0",
+        "vue-tsc": "^2.0.21"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ],
+    "bugs": {
+        "url": "https://github.com/evo-mark/vue3-slide-up-down/issues"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/evo-mark/vue3-slide-up-down.git"
+    },
+    "keywords": [
+        "Vue",
+        "Vue3",
+        "show",
+        "hide",
+        "slide",
+        "collapse",
+        "transition",
+        "slideup",
+        "slidedown",
+        "up",
+        "down"
+    ],
+    "packageManager": "pnpm@9.1.1+sha256.9551e803dcb7a1839fdf5416153a844060c7bce013218ce823410532504ac10b"
 }
